@@ -77,6 +77,7 @@ There are some steps to create a .bin file. For this application note MCUXpresso
 
 ## 4. Get to know FRDM-RW612<a name="step4"></a>
 [FRDM-RW612](https://www.nxp.com/FRDM-RW612) board was designed to evaluate ISP mode using all supported interfaces.
+
 [<img src="./Images/FRDM-RW61x-Get2Know.png" width="800"/>](./Images/FRDM-RW61x-Get2Know.png)
 
 Here is a list of the location of the supported interfaces on the FRDM-RW612 for ISP evaluation:
