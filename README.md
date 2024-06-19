@@ -60,7 +60,9 @@ The Supported pins for each interface on RW family can be found in the following
 |                |                   |                   |                        | GPIO_33 (FLEXSPI_D3)   |
 
 ## 3. Creating a binary for ISP mode <a name="step3"></a>
-There are some steps to create a .bin file. For this application note MCUXpresso and Visual Studio Code are covered and hello_world SDK example was selected but, the procedure with other firmware projects is the same:
+There are some steps to create a .bin file. For this application note MCUXpresso and Visual Studio Code are covered and frdmrw612_ISP_BLHost_Demo example was selected but, the procedure with other firmware projects is the same:
+
+The [frdmrw612_ISP_BLHost_Demo](/frdmrw612_ISP_BLHost_Demo) project can be found on this repository. A pre-built binary file, [frdmrw612_ISP_BLHost_Demo.bin](/bin_file/frdmrw612_ISP_BLHost_Demo.bin) can also be found with this application note.
 
 #### MCUXpresso
   **1.** Open the example
@@ -69,7 +71,7 @@ There are some steps to create a .bin file. For this application note MCUXpresso
 
   **3.** Go to folder Debug in Project Explorer
 
-  **4.** Right click on frdmrw612_hello_world.axf
+  **4.** Right click on frdmrw612_ISP_BLHost_Demo.axf
 
   **5.** Finally, search for Binary utilities and click on create a binary
 
@@ -172,7 +174,7 @@ Following commands have the Boot ROM generate a Flash configuration and then con
 ```
 blhost -p COMxx -- fill-memory 0x20001000 0x4 0xC0100002
 blhost -p COMxx -- configure-memory 0x9 0x20001000
-blhost -p COM8 -- get-property 0x19 0x9
+blhost -p COMxx -- get-property 0x19 0x9
 ```
 
 [<img src="./Images/FRDM-UART-configure-flash.png" width="800"/>](./Images/FRDM-UART-configure-flash.png)
@@ -204,7 +206,7 @@ blhost Command: blhost -p COMxx -- write-memory 0x08000000 <<binary file>>
 
 [<img src="./Images/FRDM-UART-flash-writeMem.png" width="800"/>](./Images/FRDM-UART-flash-writeMem.png)
 
-Once the write process is complete you can simply press the reset button (SW1) or power-on your board again and your new firmware will be executed.
+Once the write process is complete you can simply press the reset button (SW1) or power-on your board again and your new firmware will be executed. With the frdmrw612_ISP_BLHost_Demo.bin file you shall see the RGB LED blinking blue.
 
 ## 9. Advanced Firmware Provisioning tools <a name="step9"></a>
 
