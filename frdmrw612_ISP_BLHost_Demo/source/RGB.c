@@ -1,9 +1,10 @@
 /*
- * RGB.c
+ * Copyright 2024 NXP
+ * All rights reserved.
  *
- *  Created on: Apr 4, 2024
- *      Author: nxg06116
+ * SPDX-License-Identifier: BSD-3-Clause
  */
+
 #include "RGB.h"
 #include "fsl_gpio.h"
 #include "fsl_io_mux.h"
