@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2021, 2023 NXP                                            */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -51,9 +51,9 @@ extern "C" {
  * Sets all bytes of a memory buffer to a specified value.
  *
  * The two buffers must not overlap.
- * 
+ *
  * * Data Integrity: Record(pDst + length)
- *  
+ *
  * @param[out]  pDst       pointer to the buffer to be set.
  * @param[in]   length     size (in bytes) to be set.
  *

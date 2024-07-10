@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2023 NXP                                                  */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -280,7 +280,7 @@ typedef union
  * This function type is used as a callback for handling data transfer from memory to a memory-mapped register.
  * Such a function shall read data from the @c uint8_t array source, and write data via a sequence of writes to @p destRegister.
  * Further specification of this function's behavior can be found in the documentation of the function that accepts this function as a callback parameter.
- * 
+ *
  * @param [out] pDestRegister  Memory-mapped register that the output data shall be written to
  * @param [in]  pSource        Array containing the input data
  * @param [in]  sourceLength   Size of @p source in bytes

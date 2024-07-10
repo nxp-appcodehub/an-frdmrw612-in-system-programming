@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2023 NXP                                                  */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -280,7 +280,7 @@ typedef union
 
 /**
  * @brief Generates an ECC key pair on the NIST P-256 curve.
- * 
+ *
  * Before execution, ELS will wait until #mcuxClEls_HwState_t.drbgentlvl == #MCUXCLELS_STATUS_DRBGENTLVL_HIGH. This can lead to a delay if the DRBG is in a state with less security strength at the time of the call.
  *
  * Call #mcuxClEls_WaitForOperation to complete the operation.
@@ -328,7 +328,7 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_EccKeyGe
 
 /**
  * @brief Performs a Diffie-Hellman key exchange with an internal ECC private key and an external ECC public key.
- * 
+ *
  * Before execution, ELS will wait until #mcuxClEls_HwState_t.drbgentlvl == #MCUXCLELS_STATUS_DRBGENTLVL_LOW. This can lead to a delay if the DRBG is in a state with less security strength at the time of the call.
  *
  * Call #mcuxClEls_WaitForOperation to complete the operation.
@@ -368,7 +368,7 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_EccKeyEx
 #ifdef MCUXCL_FEATURE_ELS_PUK_INTERNAL
 /**
  * @brief Performs a Diffie-Hellman key exchange with an internal ECC private key and an internal ECC public key.
- * 
+ *
  * Before execution, ELS will wait until #mcuxClEls_HwState_t.drbgentlvl == #MCUXCLELS_STATUS_DRBGENTLVL_LOW. This can lead to a delay if the DRBG is in a state with less security strength at the time of the call.
  *
  * Call #mcuxClEls_WaitForOperation to complete the operation.
@@ -406,9 +406,9 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_EccKeyEx
  * @if MCUXCL_FEATURE_ELS_SHA_DIRECT
  * No matter the value of @p options.echashchl, it must be ensured that SHA-Direct mode is disabled when calling this function (see #mcuxClEls_ShaDirect_Disable).
  * @endif
- * 
+ *
  * Before execution, ELS will wait until #mcuxClEls_HwState_t.drbgentlvl == #MCUXCLELS_STATUS_DRBGENTLVL_HIGH. This can lead to a delay if the DRBG is in a state with less security strength at the time of the call.
- * 
+ *
  * Call #mcuxClEls_WaitForOperation to complete the operation.
  *
  * @param[in]  options            The command options. For more information, see #mcuxClEls_EccSignOption_t.
@@ -460,9 +460,9 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_EccSign_
  * @if MCUXCL_FEATURE_ELS_SHA_DIRECT
  * No matter the value of @p options.echashchl, it must be ensured that SHA-Direct mode is disabled when calling this function (see #mcuxClEls_ShaDirect_Disable).
  * @endif
- * 
+ *
  * Before execution, ELS will wait until #mcuxClEls_HwState_t.drbgentlvl == #MCUXCLELS_STATUS_DRBGENTLVL_LOW. This can lead to a delay if the DRBG is in a state with less security strength at the time of the call.
- * 
+ *
  * Call #mcuxClEls_WaitForOperation to complete the operation.
  *
  * @param[in]  options             The command options. For more information, see #mcuxClEls_EccVerifyOption_t.
@@ -523,9 +523,9 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_EccVerif
  * @if MCUXCL_FEATURE_ELS_SHA_DIRECT
  * No matter the value of @p options.echashchl, it must be ensured that SHA-Direct mode is disabled when calling this function (see #mcuxClEls_ShaDirect_Disable).
  * @endif
- * 
+ *
  * Before execution, ELS will wait until #mcuxClEls_HwState_t.drbgentlvl == #MCUXCLELS_STATUS_DRBGENTLVL_LOW. This can lead to a delay if the DRBG is in a state with less security strength at the time of the call.
- * 
+ *
  * Call #mcuxClEls_WaitForOperation to complete the operation.
  *
  * @param[in]  options             The command options. For more information, see #mcuxClEls_EccVerifyOption_t.

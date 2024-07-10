@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2022 NXP                                                  */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -14,9 +14,9 @@
 /** @file  mcuxClEls_GlitchDetector.h
  *  @brief ELS header for controlling the glitch detector.
  *
- * This header exposes functions that configure the ELS glitch detector. 
+ * This header exposes functions that configure the ELS glitch detector.
  */
- 
+
 #ifndef MCUXCLELS_GLITCHDETECTOR_H_
 #define MCUXCLELS_GLITCHDETECTOR_H_
 
@@ -33,7 +33,7 @@ extern "C" {
  * @ingroup mcuxClEls
  * @{
  */
- 
+
 /**********************************************
  * CONSTANTS
  **********************************************/
@@ -71,7 +71,7 @@ extern "C" {
  *
  * @retval #MCUXCLELS_STATUS_SW_INVALID_PARAM    if invalid parameters were specified
  * @retval #MCUXCLELS_STATUS_SW_CANNOT_INTERRUPT if a running operation prevented the request
- * @retval #MCUXCLELS_STATUS_OK_WAIT             on successful request 
+ * @retval #MCUXCLELS_STATUS_OK_WAIT             on successful request
  *
  * @if (MCUXCL_FEATURE_CSSL_FP_USE_SECURE_COUNTER && MCUXCL_FEATURE_CSSL_SC_USE_SW_LOCAL)
  *  @return A code-flow protected error code (see @ref mcuxCsslFlowProtection). The error code can be any error code in @ref MCUXCLELS_STATUS_, see individual documentation for more information
@@ -84,7 +84,7 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDe
     uint8_t const * pInput
     );
 
-/** 
+/**
  * @brief Calculates optimal ELS glitch detector configuration and writes it to system memory.
  *
  * Call #mcuxClEls_WaitForOperation to complete the operation.
@@ -93,7 +93,7 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDe
  *
  * @retval #MCUXCLELS_STATUS_SW_INVALID_PARAM    if invalid parameters were specified
  * @retval #MCUXCLELS_STATUS_SW_CANNOT_INTERRUPT if a running operation prevented the request
- * @retval #MCUXCLELS_STATUS_OK_WAIT             on successful request 
+ * @retval #MCUXCLELS_STATUS_OK_WAIT             on successful request
  *
  * @if (MCUXCL_FEATURE_CSSL_FP_USE_SECURE_COUNTER && MCUXCL_FEATURE_CSSL_SC_USE_SW_LOCAL)
  *  @return A code-flow protected error code (see @ref mcuxCsslFlowProtection). The error code can be any error code in @ref MCUXCLELS_STATUS_, see individual documentation for more information
@@ -104,17 +104,17 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDe
  */
 MCUX_CSSL_FP_FUNCTION_DECL(mcuxClEls_GlitchDetector_Trim_Async)
 MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDetector_Trim_Async(
-    uint8_t * pOutput 
+    uint8_t * pOutput
     );
 
-/** 
+/**
  * @brief Reads the glitch detector's event counter
- * 
+ *
  * This function converts the event counter from Gray code to an unsigned number.
  *
  * @param[in]   Pointer to the word where the counter value will be stored.
  *
- * @retval #MCUXCLELS_STATUS_OK                  on successful request 
+ * @retval #MCUXCLELS_STATUS_OK                  on successful request
  *
  * @if (MCUXCL_FEATURE_CSSL_FP_USE_SECURE_COUNTER && MCUXCL_FEATURE_CSSL_SC_USE_SW_LOCAL)
  *  @return A code-flow protected error code (see @ref mcuxCsslFlowProtection). The error code can be any error code in @ref MCUXCLELS_STATUS_, see individual documentation for more information
@@ -124,10 +124,10 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDe
  */
 MCUX_CSSL_FP_FUNCTION_DECL(mcuxClEls_GlitchDetector_GetEventCounter)
 MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDetector_GetEventCounter(
-    uint8_t * pCount 
+    uint8_t * pCount
     );
 
-/** 
+/**
  * @brief Resets the glitch detector's event counter
  *
  * @retval #MCUXCLELS_STATUS_OK                  on successful request
@@ -141,11 +141,11 @@ MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDe
 MCUX_CSSL_FP_FUNCTION_DECL(mcuxClEls_GlitchDetector_ResetEventCounter)
 MCUXCLELS_API MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_GlitchDetector_ResetEventCounter( void
     );
- 
+
 /**
  * @}
  */ /* mcuxClEls_GlitchDetector_Functions */
- 
+
 /**
  * @}
  */ /* mcuxClEls_GlitchDetector */

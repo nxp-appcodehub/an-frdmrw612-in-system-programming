@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2023 NXP                                                  */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -354,7 +354,7 @@ MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClEls_Status_t) mcuxClEls_handleKeyExportError(u
 /** read from ELS PRNG SFR. */
 static inline uint32_t mcuxClEls_readPrngOut(void)
 {
-    return MCUXCLELS_SFR_READ(ELS_PRNG_DATOUT); 
+    return MCUXCLELS_SFR_READ(ELS_PRNG_DATOUT);
 }
 
 #ifdef __cplusplus

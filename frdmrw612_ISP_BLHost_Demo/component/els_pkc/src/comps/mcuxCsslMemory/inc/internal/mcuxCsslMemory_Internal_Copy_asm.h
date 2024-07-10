@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2021-2023 NXP                                                  */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -17,8 +17,8 @@
  */
 
 
-#ifndef MCUXCSSLMEMORY_INTERNAL_COPY_ASM_H_ 
-#define MCUXCSSLMEMORY_INTERNAL_COPY_ASM_H_ 
+#ifndef MCUXCSSLMEMORY_INTERNAL_COPY_ASM_H_
+#define MCUXCSSLMEMORY_INTERNAL_COPY_ASM_H_
 
 
 #if defined( __ICCARM__ ) || (defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050))

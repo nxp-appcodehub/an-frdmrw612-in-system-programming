@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2023 NXP                                                  */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -44,12 +44,12 @@
  * @brief Compares the two memory regions @p lhs and @p rhs
  *
  * The implementation is secure in the following aspects:
- * 
+ *
  * * Constant execution time: The execution sequence of the code is always identical for equal @p length parameters,
  *     i.e. no branches are performed based on the data in @p pLhs or @p pRhs.
  * * Parameter integrity protection: An incorrect parameter checksum makes the function return immediately.
  * * Code flow protection: The function call is protected. Additionally, the result depends on all steps of the calculation.
- * 
+ *
  * @param chk    The parameter checksum, generated with #mcuxCsslParamIntegrity_Protect.
  * @param pLhs   The left-hand side data to compare. Must not be NULL.
  * @param pRhs   The right-hand side data to compare. Must not be NULL.

@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2023 NXP                                                       */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -47,13 +47,13 @@ extern "C" {
  * Compares two memory buffer with security agains faults.
  *
  * The two buffers must not overlap.
- * 
+ *
  * * Data Integrity: Record(pLhs + pRhs + length)
- *  
+ *
  * @param[in]  pLhs        pointer to the left buffer to be compared.
  * @param[in]  pRhs        pointer to the right buffer to be compared.
  * @param[in]  length      size (in bytes) to be compared.
- * 
+ *
  * @return A status code encapsulated in a flow-protection type.
  * @retval #MCUXCLMEMORY_STATUS_EQUAL                 If length bytes of Lhs and Rhs are equal.
  * @retval #MCUXCLMEMORY_STATUS_NOT_EQUAL             If at least one bytes differ between the two.
@@ -72,7 +72,7 @@ static inline MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClMemory_Status_t) mcuxClMemory_co
 
     mcuxClMemory_Status_t retval = MCUXCLMEMORY_STATUS_FAULT;
 
-        MCUX_CSSL_FP_FUNCTION_CALL(csslRetval, 
+        MCUX_CSSL_FP_FUNCTION_CALL(csslRetval,
             mcuxCsslMemory_Compare(mcuxCsslParamIntegrity_Protect(3u,  pLhs, pRhs, length),
             pLhs, pRhs, length));
         retval = (mcuxClMemory_Status_t) csslRetval ^ (MCUXCSSLMEMORY_COMPONENT_MASK ^ MCUXCLMEMORY_COMPONENT_MASK);  // May return invalid parameters too.

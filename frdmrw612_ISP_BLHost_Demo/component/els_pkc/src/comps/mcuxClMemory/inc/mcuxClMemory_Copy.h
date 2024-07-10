@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2021, 2023 NXP                                            */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -43,10 +43,10 @@ extern "C" {
  * Copies a memory buffer to another location.
  *
  * The two buffers must not overlap.
- * 
- * If the destination buffer is too small, i.e. if bufLength < length, 
+ *
+ * If the destination buffer is too small, i.e. if bufLength < length,
  * (length-bufLength) is added to the Flow Protection token (see @ref mcuxCsslFlowProtection).
- *  
+ *
  * @param[out] pDst        pointer to the buffer to be copied to.
  * @param[in]  pSrc        pointer to the buffer to copy.
  * @param[in]  length      size (in bytes) to be copied.

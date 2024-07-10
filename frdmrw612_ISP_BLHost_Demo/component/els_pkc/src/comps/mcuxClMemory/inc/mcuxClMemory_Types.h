@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2021, 2023 NXP                                            */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -51,7 +51,7 @@
  **********************************************/
 /**
  * @brief Type for error codes of mcuxClMemory component functions.
- * 
+ *
  * Type returned by mcuxClMemory functions. See @ref MCUXCLMEMORY_STATUS_ for possible options.
  */
 typedef uint32_t mcuxClMemory_Status_t;

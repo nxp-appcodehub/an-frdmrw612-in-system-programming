@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2022-2023 NXP                                                  */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -53,13 +53,13 @@ extern "C" {
 
 /**
  * \brief Writes the pointer of \p bufSrc plus the \p offset in \p ppDest.
- * 
+ *
  * \param bufSrc      Input buffer
  * \param offset      Offset of the input buffer
  * \param bufCpuWa    Not used
  * \param ppDest      Pointer to the address where the result is written to
  * \param byteLength  Not used
- * 
+ *
  * \return Status of the operation.
  */
 MCUX_CSSL_FP_FUNCTION_DEF(mcuxClBuffer_inputBufferToCPU)

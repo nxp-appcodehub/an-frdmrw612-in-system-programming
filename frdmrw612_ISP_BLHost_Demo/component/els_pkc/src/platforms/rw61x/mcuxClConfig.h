@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2023 NXP                                                       */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -14,7 +14,7 @@
 #ifndef MCUXCL_CONFIG_H_
 #define MCUXCL_CONFIG_H_
 
-//commented defines for all available features 
+//commented defines for all available features
 //#define    MCUXCL_FEATURE_EXPORTED_FEATURE_HEADER
 //#define    MCUXCL_FEATURE_EXPORTED_PLATFORM_HEADERS
 //#define    MCUXCL_FEATURE_PLATFORM_RW61X
@@ -423,7 +423,7 @@
 //#define    MCUXCL_FEATURE_KEEP_INTERNAL_COMMENTS
 //#define    MCUXCL_FEATURE_INTERNAL_INCLUDES_FLAG
 
-//commented defines for all enabled features 
+//commented defines for all enabled features
 //#define    MCUXCL_FEATURE_EXPORTED_FEATURE_HEADER
 //#define    MCUXCL_FEATURE_EXPORTED_PLATFORM_HEADERS
 //#define    MCUXCL_FEATURE_PLATFORM_RW61X
@@ -832,7 +832,7 @@
 //#define    MCUXCL_FEATURE_KEEP_INTERNAL_COMMENTS
 //#define    MCUXCL_FEATURE_INTERNAL_INCLUDES_FLAG
 
-//defines for exported features 
+//defines for exported features
 #define    MCUXCL_FEATURE_PLATFORM_RW61X          1
 #define    MCUXCL_FEATURE_HW_ROPUF          1
 #define    MCUXCL_FEATURE_HW_TRNG          1

@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2020-2021, 2023 NXP                                            */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -49,9 +49,9 @@ extern "C" {
  * Sets all bytes of a memory buffer to a specified value.
  *
  * The two buffers must not overlap.
- * 
+ *
  * * Data Integrity: Record(pDst + length)
- *  
+ *
  * @param[out]  pDst       pointer to the buffer to be set.
  * @param[in]   val        byte value to be set.
  * @param[in]   length     size (in bytes) to be set.
@@ -79,7 +79,7 @@ static inline MCUX_CSSL_FP_PROTECTED_TYPE(mcuxClMemory_Status_t) mcuxClMemory_se
         retval = (mcuxClMemory_Status_t) csslRetval ^ (MCUXCSSLMEMORY_COMPONENT_MASK ^ MCUXCLMEMORY_COMPONENT_MASK);
         MCUX_CSSL_DI_RECORD(identifier /* Not used */, (uint32_t) pDst + length);  // Unbalance the SC
         MCUX_CSSL_FP_FUNCTION_EXIT(mcuxClMemory_set_int, retval, MCUX_CSSL_FP_FUNCTION_CALLED(mcuxCsslMemory_Set));
-    
+
 }
 
 

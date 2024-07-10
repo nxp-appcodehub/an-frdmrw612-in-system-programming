@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------*/
 /* Copyright 2023 NXP                                                       */
 /*                                                                          */
-/* NXP Confidential. This software is owned or controlled by NXP and may    */
+/* NXP Proprietary. This software is owned or controlled by NXP and may    */
 /* only be used strictly in accordance with the applicable license terms.   */
 /* By expressly accepting such terms or by downloading, installing,         */
 /* activating and/or otherwise using the software, you are agreeing that    */
@@ -47,14 +47,14 @@ extern "C" {
  * Compares two memory buffers with security against fault and DPA.
  *
  * The two buffers must not overlap.
- * 
+ *
  * * Data Integrity: Record(pLhs + pRhs + length)
- *  
+ *
  * @param[in]  session     Handle for the current CL session.
  * @param[in]  pLhs        pointer to the left buffer to be compared.
  * @param[in]  pRhs        pointer to the right buffer to be compared.
  * @param[in]  length      size (in bytes) to be compared.
- * 
+ *
  * @return A status code encapsulated in a flow-protection type.
  * @retval #MCUXCLMEMORY_STATUS_EQUAL                 If length bytes of Lhs and Rhs are equal.
  * @retval #MCUXCLMEMORY_STATUS_NOT_EQUAL             If at least one bytes differ between the two.
