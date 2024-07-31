@@ -1,6 +1,6 @@
 NXP Software Content Register
 
-Package:                    an-frdmrw612-in-system-programming
+Package:                    frdmrw612_ISP_BLHost_Demo.bin
 Version:                    1.0
 Outgoing License:           LA_OPT_Online Code Hosting NXP_Software_License - v1.2 October 2023 
 License file:               License.txt
