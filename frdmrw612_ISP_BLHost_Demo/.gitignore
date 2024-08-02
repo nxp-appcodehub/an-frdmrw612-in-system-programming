@@ -1,0 +1,10 @@
+/Debug/
+/Release/
+
+!/Debug/frdmrw612_ISP_BLHost_Demo_Debug_library.ld
+!/Debug/frdmrw612_ISP_BLHost_Demo_Debug_memory.ld
+!/Debug/frdmrw612_ISP_BLHost_Demo_Debug.ld
+
+!/Release/frdmrw612_ISP_BLHost_Demo_Release_library.ld
+!/Release/frdmrw612_ISP_BLHost_Demo_Release_memory.ld
+!/Release/frdmrw612_ISP_BLHost_Demo_Release.ld
