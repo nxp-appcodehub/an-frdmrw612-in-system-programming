@@ -62,7 +62,7 @@ The Supported pins for each interface on RW family can be found in the following
 ## 3. Creating a binary for ISP mode <a name="step3"></a>
 There are some steps to create a .bin file. For this application note MCUXpresso and Visual Studio Code are covered and frdmrw612_ISP_BLHost_Demo example was selected but, the procedure with other firmware projects is the same:
 
-The [frdmrw612_ISP_BLHost_Demo](/frdmrw612_ISP_BLHost_Demo) project can be found on this repository. A pre-built binary file, [frdmrw612_ISP_BLHost_Demo.bin](frdmrw612_ISP_BLHost_Demo/binary/frdmrw612_ISP_BLHost_Demo.bin) can also be found with this application note.
+The [frdmrw612_ISP_BLHost_Demo](frdmrw612_ISP_BLHost_Demo) project can be found on this repository. A pre-built binary file, [frdmrw612_ISP_BLHost_Demo.bin](frdmrw612_ISP_BLHost_Demo/binary/frdmrw612_ISP_BLHost_Demo.bin) can also be found with this application note.
 
 #### MCUXpresso
   **1.** Open the example
