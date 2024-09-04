@@ -1,6 +1,5 @@
 /*
  * Copyright 2021-2024 NXP
- * All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -14,6 +13,7 @@
 #include "fsl_io_mux.h"
 #include "fsl_power.h"
 #include "fsl_ocotp.h"
+#include "mcuxClEls.h"
 
 /*******************************************************************************
  * Definitions
@@ -305,11 +305,104 @@ void BOARD_SetFlexspiClock(FLEXSPI_Type *base, uint32_t src, uint32_t divider)
     }
 }
 
+static bool LoadGdetCfg(power_gdet_data_t *data)
+{
+    bool retval = true;
+
+    /* If T3 256M clock is disabled, GDET cannot work. */
+    if ((SYSCTL2->SOURCE_CLK_GATE & SYSCTL2_SOURCE_CLK_GATE_T3PLL_MCI_256M_CG_MASK) != 0U)
+    {
+        retval = false;
+    }
+    else
+    {
+        /* GDET clock has been characterzed to 64MHz */
+        CLKCTL0->ELS_GDET_CLK_SEL = CLKCTL0_ELS_GDET_CLK_SEL_SEL(2);
+    }
+
+    if (retval)
+    {
+        /* LOAD command */
+        MCUX_CSSL_FP_FUNCTION_CALL_BEGIN(result, token, mcuxClEls_GlitchDetector_LoadConfig_Async((uint8_t *)data));
+        if ((MCUX_CSSL_FP_FUNCTION_CALLED(mcuxClEls_GlitchDetector_LoadConfig_Async) != token) ||
+            (MCUXCLELS_STATUS_OK_WAIT != result))
+        {
+            retval = false;
+        }
+        MCUX_CSSL_FP_FUNCTION_CALL_END();
+    }
+
+    if (retval)
+    {
+        /* Wait for the mcuxClEls_GlitchDetector_LoadConfig_Async operation to complete. */
+        MCUX_CSSL_FP_FUNCTION_CALL_BEGIN(result, token, mcuxClEls_WaitForOperation(MCUXCLELS_ERROR_FLAGS_CLEAR));
+        if ((MCUX_CSSL_FP_FUNCTION_CALLED(mcuxClEls_WaitForOperation) != token) || (MCUXCLELS_STATUS_OK != result))
+        {
+            retval = false;
+        }
+        MCUX_CSSL_FP_FUNCTION_CALL_END();
+    }
+
+    return retval;
+}
+
+static void ConfigSvcSensor(void)
+{
+    uint64_t svc;
+    uint32_t pack;
+    status_t status;
+    power_gdet_data_t gdetData = {0U};
+    uint32_t rev = SOCCTRL->CHIP_INFO & SOCCIU_CHIP_INFO_REV_NUM_MASK;
+
+    status = OCOTP_ReadSVC(&svc);
+    if (status == kStatus_Success)
+    { /* CES */
+        status = OCOTP_ReadPackage(&pack);
+        if (status == kStatus_Success)
+        {
+            /*
+               A2 CES: Use SVC voltage.
+               A1 CES: Keep boot voltage 1.11V.
+             */
+            POWER_InitVoltage((rev == 2U) ? ((uint32_t)svc >> 16) : 0U, pack);
+        }
+
+        /* SVC GDET config */
+        status = (status == kStatus_Success) ? OCOTP_OtpFuseRead(149, &gdetData.CFG[0]) : status;
+        status = (status == kStatus_Success) ? OCOTP_OtpFuseRead(150, &gdetData.CFG[1]) : status;
+        status = (status == kStatus_Success) ? OCOTP_OtpFuseRead(151, &gdetData.CFG[2]) : status;
+        /* A2 CES load fuse 155 for trim calculation. A1 CES directly use the default trim value in fuse 152. */
+        status = (status == kStatus_Success) ? OCOTP_OtpFuseRead((rev == 2U) ? 155 : 152, &gdetData.CFG[3]) : status;
+        status = (status == kStatus_Success) ? OCOTP_OtpFuseRead(153, &gdetData.CFG[4]) : status;
+        status = (status == kStatus_Success) ? OCOTP_OtpFuseRead(154, &gdetData.CFG[5]) : status;
+        assert(status == kStatus_Success);
+
+        /* Must configure GDET load function for POWER_EnableGDetVSensors(). */
+        Power_InitLoadGdetCfg(LoadGdetCfg, &gdetData, pack);
+    }
+    else
+    {
+        /* A1/A2 non-CES */
+        SystemCoreClockUpdate();
+
+        /* LPBG trim */
+        BUCK11->BUCK_CTRL_EIGHTEEN_REG = 0x6U;
+        /* Change buck level */
+        PMU->PMIP_BUCK_LVL = PMU_PMIP_BUCK_LVL_SLEEP_BUCK18_SEL(0x60U) |  /* 1.8V */
+                             PMU_PMIP_BUCK_LVL_SLEEP_BUCK11_SEL(0x22U) |  /* 0.8V */
+                             PMU_PMIP_BUCK_LVL_NORMAL_BUCK18_SEL(0x60U) | /* 1.8V */
+                             PMU_PMIP_BUCK_LVL_NORMAL_BUCK11_SEL(0x54U);  /* 1.05V */
+        /* Delay 600us */
+        SDK_DelayAtLeastUs(600, SystemCoreClock);
+    }
+}
+
 /* This function is used to configure static voltage compansation and sensors, and in XIP case, change FlexSPI clock
    to a stable source before clock tree(Such as PLL and Main clock) update */
 void BOARD_ClockPreConfig(void)
 {
     OCOTP_OtpInit();
+    ConfigSvcSensor();
     OCOTP_OtpDeinit();
 
     if (BOARD_IS_XIP())
