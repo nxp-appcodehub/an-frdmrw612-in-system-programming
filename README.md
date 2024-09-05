@@ -201,7 +201,7 @@ blhost -p COMxx -- flash-erase-region 0x08000000 0x10000
 **3. Load binary on RW external Flash**
 
 ```
-blhost Command: blhost -p COMxx -- write-memory 0x08000000 <<binary file>>
+blhost -p COMxx -- write-memory 0x08000000 <<binary file>>
 ```
 
 [<img src="./Images/FRDM-UART-flash-writeMem.png" width="800"/>](./Images/FRDM-UART-flash-writeMem.png)
