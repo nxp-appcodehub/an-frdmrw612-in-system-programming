@@ -1,0 +1,27 @@
+<data:item xmlns:data="data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data ../../xsd/alp.xsd" id="an-frdmrw612-in-system-programming" type="app_note" format="projectfile" versionSchema="1.0.0" name="FRDMRW612 in-system programming">
+    <display_title>
+        How to use In-System Programming (ISP) on FRDM-RW612
+    </display_title>
+    <overview>
+        <![CDATA[This Application Note shows you how to use the In-System Programming (ISP) feature of the RW61x family to program the external flash on the RW612-FRDM board. The RW family counts with on-chip ROM containing In-System Programming capability, supporting UART, SPI, I2C and USB flash programming (store application code and data), as well as APIs for user code and In-application-programming functionality by the IAP API, via the unified memory interface or the secondary bootloader API.]]>
+    </overview>
+    <toolchains>
+        <toolchain name="mcux"></toolchain>
+        <toolchain name="vscode"></toolchain>
+    </toolchains>
+    <families>
+        <family name="rw"></family>
+    </families>
+    <nxp_compatible_hw>
+        <hw id="FRDM-RW612"></hw>
+    </nxp_compatible_hw>
+    <peripherals>
+        <peripheral name="i2c"></peripheral>
+        <peripheral name="spi"></peripheral>
+        <peripheral name="uart"></peripheral>
+        <peripheral name="usb"></peripheral>
+    </peripherals>
+    <categories>
+        <category name="tools"></category>
+    </categories>
+</data:item>
